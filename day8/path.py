@@ -29,6 +29,7 @@ print(locations)
 
 needed = []
 for location in locations:
+
     needed.append(find_z(location))
 print(needed)
 

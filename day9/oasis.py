@@ -3,12 +3,10 @@ with open("day9\input.txt") as f:
 ans1 = 0
 ans2 = 0
 def extrapolate(line, part2):
-    diff = []
-    for i in range(len(line)-1):
-        diff.append(line[i+1]-line[i])
+    diff = [b-a for a,b in zip(line, line[1:])]
     if all(num==0 for num in diff):
         return line[-1 if not part2 else 0]
-    else:
+    else:                   
         return line[-1 if not part2 else 0] + (1 if not part2 else -1) * extrapolate(diff, part2)
 
 for line in s:
